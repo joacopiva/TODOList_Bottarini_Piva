@@ -6,11 +6,19 @@ const principal = (nuevatarea) =>
 
     ArrayTareas.push(nuevatarea)
 
+    tareas.innerHTML = "";
+    
 
-    <input> </input>;
-    tareas.innerHTML = ArrayTareas;
 
     console.log(ArrayTareas)
+
+    for(let i = 0; i < ArrayTareas.length; i++)
+    {
+        let task = document.createElement("p")
+        task.innerHTML = ArrayTareas[i]
+        tareas.appendChild(task)
+      
+    }
 
 
 
