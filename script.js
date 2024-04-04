@@ -36,10 +36,15 @@ const principal = (nuevatarea) =>
     for(let i = 0; i < ArrayTareas.length; i++)
     {
         let task = document.createElement("p")
-        let check = document.createElement("label")
+        let check = document.createElement("input")
+        let li = document.createElement("li")
+        check.type = 'checkbox';
         task.innerHTML = ArrayTareas[i].nuevaTarea;
-        task.onclick(tachar(task));
-        tareas.appendChild(task);
+        
+        li.appendChild(check);
+        li.appendChild(task);
+        tareas.appendChild(li);
+        
       
     }
 
@@ -47,10 +52,7 @@ const principal = (nuevatarea) =>
 
 }
 
-function tachar(task)
-{
-    task.style.text-decoration = "line-through";
-}
+
 
 
 
