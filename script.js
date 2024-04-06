@@ -1,11 +1,4 @@
 let ArrayTareas = []
-let Tarea = 
-{
-    nuevaTarea: null,
-    fechaHoraCreado: null,
-    fechaHoraTachado: null,
-};
-
 const CrearTarea = () =>
 {    
     let nuevatarea = document.getElementById("NewTask").value;
@@ -16,38 +9,76 @@ const CrearTarea = () =>
 
 const principal = (nuevatarea) =>
 {   
-    let tareas = document.getElementById("Tareas")
+    var contenedor = document.querySelector(".Tareas");
 
-    Tarea = 
+    const Tarea = 
     {
         nuevaTarea: nuevatarea,
-        fechaHoraCreado: new Date().toLocaleString(),
-        fechaHoraTachado: new Date().toLocaleString()
+        fechaHoraCreado: Date.now(),
+        fechaHoraTachado: null
     }
 
+    
     ArrayTareas.push(Tarea)
 
-    tareas.innerHTML = "";
+    let check = document.createElement("input")
+    let task = document.createElement("label")
+    check.type = 'checkbox';
+    let li = document.createElement("li")
     
+    check.addEventListener('change', function()
+    {
+        if(check.checked)
+        {
+            task.style.textDecoration = "line-through";
+            Tarea.fechaHoraTachado = Date.now()
+        }
+        else
+        {
+            task.style.textDecoration = "none";
+        }
+        
+    })
 
 
-    console.log(ArrayTareas)
 
     for(let i = 0; i < ArrayTareas.length; i++)
     {
-        let task = document.createElement("p")
-        let check = document.createElement("input")
-        let li = document.createElement("li")
-        check.type = 'checkbox';
         task.innerHTML = ArrayTareas[i].nuevaTarea;
-        
         li.appendChild(check);
         li.appendChild(task);
-        tareas.appendChild(li);
-        
-      
-    }
+        contenedor.appendChild(li);
 
+    }
+    console.log(ArrayTareas)
+}
+
+function ObtenerTareaMasRapida()
+{
+    let ArrayTareasTachadas = ArrayTareas.filter(function(i)
+    {
+        return i.fechaHoraTachado != null;
+    })
+    console.log(ArrayTareas)
+    let tareaMostrarNombre = ArrayTareasTachadas[0].nuevaTarea;
+    let tareaMasRapida = ArrayTareasTachadas[0].fechaHoraTachado;
+
+
+    for(let i = 0; i < ArrayTareasTachadas.length; i++)
+    {
+        if(tareaMasRapida > ArrayTareasTachadas[i].fechaHoraTachado)
+        {
+            tareaMasRapida = ArrayTareasTachadas[i];
+            tareaMostrarNombre = ArrayTareas[i].nuevaTarea;
+
+        }
+    }
+    let contenedorRapido = document.querySelector(".TareaRapida");
+
+    var label = document.createElement("label");
+
+    label.innerHTML = "La tarea mas rapida en realizarse fue: " + tareaMostrarNombre
+    contenedorRapido.appendChild(label);
 
 
 }
