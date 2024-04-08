@@ -1,9 +1,17 @@
 let ArrayTareas = []
 const CrearTarea = () =>
 {    
+
+    
     let nuevatarea = document.getElementById("NewTask").value;
 
-    principal(nuevatarea)
+    if(nuevatarea!= "")
+    {
+        principal(nuevatarea)
+    }
+
+    
+
 }  
 
 

@@ -1,3 +1,50 @@
 li{
     display: flex;
+    font-size: x-large;
 }
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Work Sans', sans-serif;
+    font-size: x-large;
+    min-height: 100vh;
+    padding-top: 3%;
+    background-image: url("img/background.jpg");
+    background-size:cover;
+}
+
+
+#tasks{
+    font-size: xx-large;
+    box-sizing: border-box;
+    padding: 8%;
+}
+
+
+#tareas {
+    padding: 7%;
+    border: 1em;
+    border-color: black;
+    color: white;
+}
+
+#NewTask{
+    font-size: 19px;
+    cursor: pointer;
+    width: 11em;
+    height: 2em;
+    margin: 0 5px;
+    
+}
+
+.checkdelete{
+    font-size: 19px;
+    cursor: pointer;
+    width: 9em;
+    height: 2em;
+    margin: 0 5px;
+    box-shadow: #fff8 0 0 10px;
+}
+

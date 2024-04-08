@@ -9,23 +9,23 @@
 </head>
 <body>
     <script src="script.js"> </script>
-    <div>  
+    <div id="tasks">  
         <input type="text" id= "NewTask" placeholder="Ingrese una nueva Task"/>
 
         
-            <button onclick = "CrearTarea()">
+            <button onclick = "CrearTarea()" class="checkdelete">
                 Crea una Tarea
             </button>
-            <button onclick = "ObtenerTareaMasRapida()">
+            <button onclick = "ObtenerTareaMasRapida()" class="checkdelete">
                 Tarea mas rapida
             </button>
             
-            <div class="Tareas">
+            <div class="Tareas" id="tareas">
                 
             </div>
 
-            <div class="TareaRapida">
-
+            <div class="TareaRapida" style="display: flex; justify-content: center; font-size: 27px; color: white;">
+                
             </div>
             
     </div>
